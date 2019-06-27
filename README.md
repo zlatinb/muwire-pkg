@@ -24,3 +24,7 @@ The file "jlink.modules" contains modules which are forcibly included by jlink.
 You need to have dos2unix and nsis installed.  Those are usually available on Debian systems
 
 Run "nsis.sh"
+
+### Building the Mac bundle
+
+Run "mac.sh"
