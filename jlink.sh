@@ -9,6 +9,7 @@ fi
 
 rm -f *.tar
 rm -f *.jar
+rm -f *.class
 rm -rf gui-*
 rm -rf tmp
 rm -rf module-info
