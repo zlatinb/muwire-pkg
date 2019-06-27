@@ -21,6 +21,8 @@ echo "copying files"
 cp unnamed.jar build/pkg
 cp MuWire.jar build/pkg
 cp muwire.bat build/pkg
+cp MuWire.properties build/
+cp -R $RES_DIR/certificates build/pkg
 
 echo "copying JRE"
 mkdir build/jre
