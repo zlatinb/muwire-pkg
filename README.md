@@ -1,4 +1,4 @@
-#MuWire Packaging Project
+# MuWire Packaging Project
 
 This is a project for packaging MuWire for various platforms.
 
