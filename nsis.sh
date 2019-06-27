@@ -21,4 +21,7 @@ echo "copying JRE"
 mkdir build/jre
 cp -R $JVM_DIR/* build/jre
 
-
+cp installer.nsi build
+cp version.nsi build
+cd build && makensis installer.nsi && cp MuWire-*.exe ../ && \
+    cd .. && echo "built windows installer"
