@@ -47,12 +47,6 @@ Section Install
 
     SetShellVarContext current
 
-    createDirectory "$APPDATA\MuWire"
-    SetOutPath "$APPDATA\MuWire"
-    SetOverwrite off
-    File MuWire.properties
-    SetOverwrite on
-
     CreateDirectory "$SMPROGRAMS\MuWire"
     CreateShortCut "$SMPROGRAMS\MuWire\MuWire.lnk" "c:\Windows\system32\cmd.exe" "/c $\"$INSTDIR\muwire.bat$\"" "$INSTDIR\toopie.ico"
     CreateShortCut "$DESKTOP\MuWire.lnk" "c:\Windows\system32\cmd.exe" "/c $\"$INSTDIR\muwire.bat$\"" "$INSTDIR\toopie.ico"
