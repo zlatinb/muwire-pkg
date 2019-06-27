@@ -2,17 +2,17 @@
 # UniCode true
 
 # uncomment when building production - takes forever
-#SetCompressor lzma
+SetCompressor lzma
 
 !include "version.nsi"
 
-!define MUI_ICON toopie.ico
+!define MUI_ICON MuWire.ico
 !define MUI_FINISHPAGE
 !include "MUI2.nsh"
 
 Name "MuWire ${MUWIRE_VERSION}"
 OutFile MuWire-${MUWIRE_VERSION}.exe
-Icon toopie.ico
+Icon MuWire.ico
 RequestExecutionLevel admin
 InstallDir "$PROGRAMFILES\MuWire"
 
@@ -37,7 +37,7 @@ Section Install
     SetOutPath $INSTDIR
 
     File GPLv3-ud.txt
-    File toopie.ico
+    File MuWire.ico
 
     File /r pkg\*.*
 
@@ -48,15 +48,15 @@ Section Install
     SetShellVarContext current
 
     CreateDirectory "$SMPROGRAMS\MuWire"
-    CreateShortCut "$SMPROGRAMS\MuWire\MuWire.lnk" "c:\Windows\system32\cmd.exe" "/c $\"$INSTDIR\muwire.bat$\"" "$INSTDIR\toopie.ico"
-    CreateShortCut "$DESKTOP\MuWire.lnk" "c:\Windows\system32\cmd.exe" "/c $\"$INSTDIR\muwire.bat$\"" "$INSTDIR\toopie.ico"
+    CreateShortCut "$SMPROGRAMS\MuWire\MuWire.lnk" "c:\Windows\system32\cmd.exe" "/c $\"$INSTDIR\muwire.bat$\"" "$INSTDIR\MuWire.ico"
+    CreateShortCut "$DESKTOP\MuWire.lnk" "c:\Windows\system32\cmd.exe" "/c $\"$INSTDIR\muwire.bat$\"" "$INSTDIR\MuWire.ico"
 
     WriteUninstaller "$INSTDIR\uninstall-muwire.exe"
 SectionEnd
 
 Section "uninstall"
     Delete "$INSTDIR\GPLv3-ud.txt"
-    Delete "$INSTDIR\toopie.ico"
+    Delete "$INSTDIR\MuWire.ico"
     Delete "$INSTDIR\uninstall-muwire.exe"
 
     Delete "$DESKTOP\MuWire.lnk"
