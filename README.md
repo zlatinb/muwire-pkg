@@ -6,6 +6,7 @@ You need to have MuWire (https://github.com/zlatinb/muwire) and I2P (github or m
 
 ### Building a JRE for MuWire
 
+0. Build I2P with `ant clean pkg`
 1. Build MuWire as described in the MuWire README
 2. Set JAVA_HOME to your installation of JDK11+
 3. Set one or more of the following:
