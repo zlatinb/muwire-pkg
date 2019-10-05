@@ -13,9 +13,9 @@ unix2dos build/GPLv3-ud.txt
 
 echo "preparing jbigi"
 cp $I2P_JARS/lib/jbigi.jar build/pkg
-zip -d build/pkg/jbigi.jar *osx*
-zip -d build/pkg/jbigi.jar *linux*
-zip -d build/pkg/jbigi.jar *freebsd*
+zip -d build/pkg/jbigi.jar "*osx*"
+zip -d build/pkg/jbigi.jar "*linux*"
+zip -d build/pkg/jbigi.jar "*freebsd*"
 
 echo "copying files"
 cp unnamed.jar build/pkg

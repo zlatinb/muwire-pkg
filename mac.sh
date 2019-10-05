@@ -11,9 +11,9 @@ mkdir -p build/MuWire.app/Contents/MacOS/jre
 
 echo "preparing jbigi"
 cp $I2P_JARS/lib/jbigi.jar build/pkg
-zip -d build/pkg/jbigi.jar *win*
-zip -d build/pkg/jbigi.jar *linux*
-zip -d build/pkg/jbigi.jar *freebsd*
+zip -d build/pkg/jbigi.jar "*win*"
+zip -d build/pkg/jbigi.jar "*linux*"
+zip -d build/pkg/jbigi.jar "*freebsd*"
 
 echo "copying jre"
 cp Info.plist build/MuWire.app/Contents

@@ -20,9 +20,9 @@ mkdir -p build/MuWire.AppDir/jre
 
 echo "preparing jbigi"
 cp $I2P_JARS/lib/jbigi.jar build/pkg
-zip -d build/pkg/jbigi.jar *win*
-zip -d build/pkg/jbigi.jar *osx*
-zip -d build/pkg/jbigi.jar *freebsd*
+zip -d build/pkg/jbigi.jar "*win*"
+zip -d build/pkg/jbigi.jar "*osx*"
+zip -d build/pkg/jbigi.jar "*freebsd*"
 
 echo "copying JRE"
 cp -R $JVM_DIR/* build/MuWire.AppDir/jre
