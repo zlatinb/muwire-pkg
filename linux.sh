@@ -35,6 +35,7 @@ cp MuWire.desktop build/MuWire.AppDir
 cp AppRun build/MuWire.AppDir
 cp muwire-appimage.sh build/MuWire.AppDir/usr/bin
 cp $MUWIRE_DIR/MuWire-48x48.png build/MuWire.AppDir
+cp -R $RES_DIR/certificates build/MuWire.AppDir
 
 echo "Creating app image"
 
