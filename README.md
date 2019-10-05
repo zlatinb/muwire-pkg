@@ -29,3 +29,10 @@ Run "nsis.sh"
 ### Building the Mac bundle
 
 Run "mac.sh"
+
+### Building Linux AppImage
+
+Set the "APPIMAGE_BINARY" to the absolute path of the App Image tool 
+(You can download it from https://github.com/AppImage/AppImageKit/releases )
+
+Run "linux.sh"
