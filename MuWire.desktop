@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=MuWire
-Exec=muwire.sh
+Exec=muwire-appimage.sh
 Icon=MuWire-48x48
 Type=Application
 Categories=Utility;
