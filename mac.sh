@@ -17,7 +17,7 @@ zip -d build/pkg/jbigi.jar *freebsd*
 
 echo "copying jre"
 cp Info.plist build/MuWire.app/Contents
-cp muwire.sh build/MuWire.app/Contents/MacOS
+cp muwire-mac.sh build/MuWire.app/Contents/MacOS
 cp -R $JVM_DIR/* build/MuWire.app/Contents/MacOS/jre
 
 echo "copying MW files"

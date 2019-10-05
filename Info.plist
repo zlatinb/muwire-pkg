@@ -5,7 +5,7 @@
 	<key>CFBundleGetInfoString</key>
 	<string>MuWire</string>
 	<key>CFBundleExecutable</key>
-	<string>muwire.sh</string>
+	<string>muwire-mac.sh</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.muwire.</string>
 	<key>CFBundleName</key>
