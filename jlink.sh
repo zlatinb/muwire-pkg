@@ -28,11 +28,11 @@ mkdir tmp
 mv gui-shadow-$VERSION/lib/gui-$VERSION.jar tmp/gui.jar
 cd tmp
 unzip gui.jar > /dev/null 
-jar -cf0 unnamed.jar *.class
+$JAVA_HOME/bin/jar -cf0 unnamed.jar *.class
 mv unnamed.jar ../
 rm *.class
 rm gui.jar
-jar -cf0 MuWire.jar *
+$JAVA_HOME/bin/jar -cf0 MuWire.jar *
 mv MuWire.jar ../
 cd ..
 
