@@ -47,6 +47,11 @@ Section Install
 
     SetShellVarContext current
 
+    CreateDirectory "$APPDATA\MuWire"
+    CreateDirectory "$APPDATA\MuWire\certificates"
+    SetOutPath "$APPDATA\MuWire\certificates"
+    File /r pkg\certificates\*.*
+
     CreateDirectory "$SMPROGRAMS\MuWire"
     CreateShortCut "$SMPROGRAMS\MuWire\MuWire.lnk" "c:\Windows\system32\cmd.exe" "/c $\"$INSTDIR\muwire.bat$\"" "$INSTDIR\MuWire.ico"
     CreateShortCut "$DESKTOP\MuWire.lnk" "c:\Windows\system32\cmd.exe" "/c $\"$INSTDIR\muwire.bat$\"" "$INSTDIR\MuWire.ico"
