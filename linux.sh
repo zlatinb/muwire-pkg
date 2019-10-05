@@ -3,6 +3,8 @@ set -e
 
 if [ -z $APPIMAGE_BINARY ]; then
     echo "set APPIMAGE_BINARY to point to the binary of the appimagetool"
+    echo "optionally you can set APPIMAGE_OPTS for additional options"
+    echo "(such as gpg-signing)"
     exit 1
 fi
 
@@ -36,6 +38,6 @@ cp $MUWIRE_DIR/MuWire-48x48.png build/MuWire.AppDir
 
 echo "Creating app image"
 
-ARCH=x86_64 $APPIMAGE_BINARY build/MuWire.AppDir
+ARCH=x86_64 $APPIMAGE_BINARY $APPIMAGE_OPTS build/MuWire.AppDir
 
 echo "created Linux App Image"
