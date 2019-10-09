@@ -4,6 +4,7 @@ set -e
 RES_DIR=../i2p.i2p/installer/resources
 JVM_DIR=dist/mac
 I2P_JARS=../i2p.i2p/pkg-temp
+MW_DIR=../muwire/logging
 
 rm -rf build
 mkdir -p build/pkg
@@ -25,6 +26,7 @@ cp build/pkg/jbigi.jar build/MuWire.app/Contents/MacOS
 cp MuWire.jar build/MuWire.app/Contents/MacOS
 cp unnamed.jar build/MuWire.app/Contents/MacOS
 cp -R $RES_DIR/certificates build/MuWire.app/Contents/MacOS
+cp -R $MW_DIR/1_logging.properties build/MuWire.app/Contents/MacOS
 
 echo "zipping.."
 
