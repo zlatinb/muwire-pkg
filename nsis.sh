@@ -4,6 +4,7 @@ set -e
 RES_DIR=../i2p.i2p/installer/resources
 JVM_DIR=dist/win
 I2P_JARS=../i2p.i2p/pkg-temp
+MW_DIR=../muwire
 
 rm -rf build *.exe
 mkdir -p build/pkg
@@ -22,6 +23,7 @@ cp unnamed.jar build/pkg
 cp MuWire.jar build/pkg
 cp muwire.bat build/pkg
 cp -R $RES_DIR/certificates build/pkg
+cp $MW_DIR/logging/1_logging.properties build/pkg
 
 echo "copying JRE"
 mkdir build/jre
