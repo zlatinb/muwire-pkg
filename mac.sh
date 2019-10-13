@@ -9,6 +9,7 @@ MW_DIR=../muwire/logging
 rm -rf build
 mkdir -p build/pkg
 mkdir -p build/MuWire.app/Contents/MacOS/jre
+mkdir -p build/MuWire.app/Contents/Resources
 
 echo "preparing jbigi"
 cp $I2P_JARS/lib/jbigi.jar build/pkg
@@ -27,6 +28,7 @@ cp MuWire.jar build/MuWire.app/Contents/MacOS
 cp unnamed.jar build/MuWire.app/Contents/MacOS
 cp -R $RES_DIR/certificates build/MuWire.app/Contents/MacOS
 cp -R $MW_DIR/1_logging.properties build/MuWire.app/Contents/MacOS
+cp MuWire.icns build/MuWire.app/Contents/Resources
 
 echo "zipping.."
 
