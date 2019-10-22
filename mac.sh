@@ -29,6 +29,7 @@ cp unnamed.jar build/MuWire.app/Contents/MacOS
 cp -R $RES_DIR/certificates build/MuWire.app/Contents/MacOS
 cp -R $MW_DIR/1_logging.properties build/MuWire.app/Contents/MacOS
 cp MuWire.icns build/MuWire.app/Contents/Resources
+cp ../muwire/gui/griffon-app/resources/MuWire-128x128.png build/MuWire.app/Contents/Resources
 
 echo "zipping.."
 
