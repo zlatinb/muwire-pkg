@@ -22,5 +22,7 @@
 	<integer>0</integer>
 	<key>IFMinorVersion</key>
 	<integer>1</integer>
+	<key>CFBundleVersion<key>
+	<string>__VERSION__</string>
 </dict>
 </plist>

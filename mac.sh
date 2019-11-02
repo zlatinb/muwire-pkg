@@ -1,6 +1,7 @@
 #!/bin/bash
 set -e
 
+VERSION=$(cat VERSION)
 RES_DIR=../i2p.i2p/installer/resources
 JVM_DIR=dist/mac
 I2P_JARS=../i2p.i2p/pkg-temp
@@ -16,6 +17,9 @@ cp $I2P_JARS/lib/jbigi.jar build/pkg
 zip -d build/pkg/jbigi.jar "*win*"
 zip -d build/pkg/jbigi.jar "*linux*"
 zip -d build/pkg/jbigi.jar "*freebsd*"
+
+echo "preparing Info.plist"
+cat Info.plist.template | sed "s/__VERSION__/${VERSION}/g" > Info.plist
 
 echo "copying jre"
 cp Info.plist build/MuWire.app/Contents
@@ -34,7 +38,7 @@ cp ../muwire/gui/griffon-app/resources/MuWire-128x128.png build/MuWire.app/Conte
 echo "zipping.."
 
 cd build
-zip -r MuWire.zip MuWire.app
-cp MuWire.zip ../
+zip -r MuWire-mac-$VERSION.zip MuWire.app
+cp MuWire-mac-$VERSION.zip ../
 cd ..
 echo "done"

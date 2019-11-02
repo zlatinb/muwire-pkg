@@ -6,7 +6,7 @@ if [ -z $JAVA_HOME ]; then
     exit 1
 fi
 
-
+rm -f VERSION
 rm -f *.tar
 rm -f *.jar
 rm -f *.class
@@ -20,6 +20,7 @@ VERSION=$(ls *.tar | sed "s/gui-shadow-\(.*\).tar/\1/")
 echo "will build version $VERSION"
 
 echo "!define MUWIRE_VERSION $VERSION" > version.nsi
+echo $VERSION > VERSION
 
 tar -xvf gui-*.tar > /dev/null
 
