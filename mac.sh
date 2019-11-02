@@ -9,8 +9,8 @@ MW_DIR=../muwire/logging
 
 rm -rf build
 mkdir -p build/pkg
-mkdir -p build/MuWire.app/Contents/MacOS/jre
-mkdir -p build/MuWire.app/Contents/Resources
+mkdir -p build/MuWire.app/Contents/MacOS
+mkdir -p build/MuWire.app/Contents/Resources/jre
 
 echo "preparing jbigi"
 cp $I2P_JARS/lib/jbigi.jar build/pkg
@@ -24,14 +24,14 @@ cat Info.plist.template | sed "s/__VERSION__/${VERSION}/g" > Info.plist
 echo "copying jre"
 cp Info.plist build/MuWire.app/Contents
 cp muwire-mac.sh build/MuWire.app/Contents/MacOS
-cp -R $JVM_DIR/* build/MuWire.app/Contents/MacOS/jre
+cp -R $JVM_DIR/* build/MuWire.app/Contents/Resources/jre
 
 echo "copying MW files"
-cp build/pkg/jbigi.jar build/MuWire.app/Contents/MacOS
-cp MuWire.jar build/MuWire.app/Contents/MacOS
-cp unnamed.jar build/MuWire.app/Contents/MacOS
-cp -R $RES_DIR/certificates build/MuWire.app/Contents/MacOS
-cp -R $MW_DIR/1_logging.properties build/MuWire.app/Contents/MacOS
+cp build/pkg/jbigi.jar build/MuWire.app/Contents/Resources
+cp MuWire.jar build/MuWire.app/Contents/Resources
+cp unnamed.jar build/MuWire.app/Contents/Resources
+cp -R $RES_DIR/certificates build/MuWire.app/Contents/Resources
+cp -R $MW_DIR/0_logging.properties build/MuWire.app/Contents/Resources
 cp MuWire.icns build/MuWire.app/Contents/Resources
 cp ../muwire/gui/griffon-app/resources/MuWire-128x128.png build/MuWire.app/Contents/Resources
 
