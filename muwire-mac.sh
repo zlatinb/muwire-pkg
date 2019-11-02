@@ -16,7 +16,7 @@ done
 SAVED="`pwd`"
 cd "`dirname \"$PRG\"`/.." >/dev/null
 APP_HOME="`pwd -P`"
-RESDIR=$APP_HOME/../Resources
+RESDIR=$APP_HOME/Resources
 cd "$SAVED" >/dev/null
 
 CONFDIR="$HOME/Library/Application Support/MuWire"
@@ -24,6 +24,6 @@ mkdir -p "${CONFDIR}"
 cp -R $RESDIR/certificates "$CONFDIR"
 
 #need to launch from outside the appbundle because of jbigi
-cd $CONFDIR
-$RESDIR/jre/bin/java -Xmx512m -Xdock:name=MuWire -Xdock:icon=$RESDIR/MuWire-128x128.png -cp "$RESDIR/jbigi.jar:$RESDIR/MuWire.jar:$RESDIR/unnamed.jar" -DembeddedRouter=true -DupdateType=mac -Djava.util.logging.config.file=0_logging.properties com.muwire.gui.Launcher
+cd "${CONFDIR}"
+"${RESDIR}"/jre/bin/java -Xmx512m -Xdock:name=MuWire -Xdock:icon="${RESDIR}"/MuWire-128x128.png -cp "$RESDIR/jbigi.jar:$RESDIR/MuWire.jar:$RESDIR/unnamed.jar" -DembeddedRouter=true -DupdateType=mac -Djava.util.logging.config.file=0_logging.properties com.muwire.gui.Launcher
 
