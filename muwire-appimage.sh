@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ ! -d ${HOME}/.MuWire]; then
+if [ ! -d ${HOME}/.MuWire ]; then
     mkdir ${HOME}/.MuWire
     cp -R ${HERE}/certificates ${HOME}/.MuWire
 fi
