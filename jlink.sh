@@ -26,7 +26,7 @@ tar -xvf gui-*.tar > /dev/null
 
 echo "moving unnamed packages out of the way"
 mkdir tmp
-mv gui-shadow-$VERSION/lib/gui-$VERSION.jar tmp/gui.jar
+mv gui-shadow-$VERSION/lib/gui-$VERSION-all.jar tmp/gui.jar
 cd tmp
 unzip gui.jar > /dev/null 
 $JAVA_HOME/bin/jar -cf0 unnamed.jar *.class
