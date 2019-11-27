@@ -22,6 +22,10 @@ cd "$SAVED" >/dev/null
 CONFDIR="$HOME/Library/Application Support/MuWire"
 mkdir -p "${CONFDIR}"
 cp -R $RESDIR/certificates "$CONFDIR"
+mkdir -p "${CONFDIR}/geoip"
+cp $RESDIR/countries.txt "${CONFDIR}/geoip"
+cp $RESDIR/continents.txt "${CONFDIR}/geoip"
+cp $RESDIR/GeoLite2-Country.mmdb "${CONFDIR}/geoip"
 
 #need to launch from outside the appbundle because of jbigi
 cd "${CONFDIR}"

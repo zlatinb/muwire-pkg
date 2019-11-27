@@ -52,6 +52,12 @@ Section Install
     SetOutPath "$APPDATA\MuWire\certificates"
     File /r pkg\certificates\*.*
 
+    CreateDirectory "$APPDATA\MuWire\geoip"
+    SetOutPath "$APPDATA\MuWire\geoip"
+    File pkg\countries.txt
+    File pkg\continents.txt
+    File pkg\GeoLite2-Country.mmdb
+
     CreateDirectory "$SMPROGRAMS\MuWire"
     CreateShortCut "$SMPROGRAMS\MuWire\MuWire.lnk" "c:\Windows\system32\cmd.exe" "/c $\"$INSTDIR\muwire.bat$\"" "$INSTDIR\MuWire.ico"
     CreateShortCut "$DESKTOP\MuWire.lnk" "c:\Windows\system32\cmd.exe" "/c $\"$INSTDIR\muwire.bat$\"" "$INSTDIR\MuWire.ico"

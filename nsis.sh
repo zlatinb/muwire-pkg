@@ -23,6 +23,10 @@ cp unnamed.jar build/pkg
 cp MuWire.jar build/pkg
 cp muwire.bat build/pkg
 cp -R $RES_DIR/certificates build/pkg
+cp $RES_DIR/countries.txt build/pkg
+cp $RES_DIR/continents.txt build/pkg
+cp $RES_DIR/GeoLite2-Country.mmdb.gz build/pkg
+gunzip build/pkg/GeoLite2-Country.mmdb.gz
 cp $MW_DIR/logging/1_logging.properties build/pkg
 
 echo "copying JRE"
