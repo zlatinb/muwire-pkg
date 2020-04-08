@@ -1,1 +1,1 @@
-jdk.crypto.ec,java.logging,java.desktop,java.naming,jdk.unsupported
+jdk.crypto.ec,java.logging,java.desktop,java.naming,jdk.unsupported,java.management,java.management.rmi,jdk.management.agent,jdk.management,jdk.management.jfr

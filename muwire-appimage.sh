@@ -9,5 +9,5 @@ if [ ! -d ${HOME}/.MuWire ]; then
     cp ${HERE}/GeoLite2-Country.mmdb ${HOME}/.MuWire/geoip
 fi
 cd ${HOME}/.MuWire
-${HERE}/jre/bin/java -Xmx512m -cp "${HERE}/jbigi.jar:${HERE}/MuWire.jar:${HERE}/unnamed.jar" -DembeddedRouter=true -DupdateType=appimage -Djava.util.logging.config.file=${HERE}/1_logging.properties com.muwire.gui.Launcher
+${HERE}/jre/bin/java -Xmx512m -cp "${HERE}/jbigi.jar:${HERE}/MuWire.jar:${HERE}/unnamed.jar" -DembeddedRouter=true -DupdateType=appimage -Djava.util.logging.config.file=${HERE}/1_logging.properties -Dcom.sun.management.jmxremote com.muwire.gui.Launcher
 
