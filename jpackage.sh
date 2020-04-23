@@ -31,7 +31,7 @@ echo "executing jpackage"
 "${JAVA_HOME}"/bin/jpackage --name MuWire \
        --icon MuWire.ico \
         --app-version $VERSION \
-        --description "Easy Anonymous File-Sharing" \
+        --description "MuWire: Easy Anonymous File-Sharing" \
         --java-options "-Djava.library.path=\"\$ROOTDIR;\$ROOTDIR\\app\"" \
         --java-options "-DembeddedRouter=true" \
         --java-options "-DupdateType=exe" \
@@ -60,3 +60,7 @@ cp $RES_DIR/GeoLite2-Country.mmdb.gz build/pkg
 gunzip build/pkg/GeoLite2-Country.mmdb.gz
 
 cp -R $DEST_DIR/* build/pkg
+
+cp installer-jpackage.nsi build/
+
+echo "done"
