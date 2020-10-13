@@ -48,3 +48,7 @@ Set the "APPIMAGE_BINARY" to the absolute path of the App Image tool
 (You can download it from https://github.com/AppImage/AppImageKit/releases )
 
 Run "linux.sh"
+
+### Building on armhf (Raspberry Pi)
+
+Same steps as Linux, excpet run `linux-armhf.sh`
