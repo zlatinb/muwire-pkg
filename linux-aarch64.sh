@@ -44,6 +44,7 @@ cp ../muwire/logging/1_logging.properties build/MuWire.AppDir
 
 echo "Creating app image"
 
-ARCH=aarch64 $APPIMAGE_BINARY $APPIMAGE_OPTS build/MuWire.AppDir
+# this seems to be a bug in appimagetool, "aarch64" is not recognized?
+ARCH=x86_64 $APPIMAGE_BINARY $APPIMAGE_OPTS build/MuWire.AppDir
 
 echo "created Linux aarch64 App Image"
