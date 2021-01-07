@@ -1,3 +1,5 @@
+The GitHub repo is a read-only mirror of the in-I2P repo at http://git.idk.i2p/zlatinb/muwire-pkg
+
 # MuWire Packaging Project
 
 This is a project for packaging MuWire for various platforms.
