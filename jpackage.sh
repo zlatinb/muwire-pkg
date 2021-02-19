@@ -54,8 +54,6 @@ unix2dos build/GPLv3-ud.txt
 cp version.nsi build
 
 cp -R $RES_DIR/certificates build/pkg
-cp $RES_DIR/countries.txt build/pkg
-cp $RES_DIR/continents.txt build/pkg
 cp $RES_DIR/GeoLite2-Country.mmdb.gz build/pkg
 gunzip build/pkg/GeoLite2-Country.mmdb.gz
 

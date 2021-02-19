@@ -54,8 +54,6 @@ Section Install
 
     CreateDirectory "$APPDATA\MuWire\geoip"
     SetOutPath "$APPDATA\MuWire\geoip"
-    File pkg\countries.txt
-    File pkg\continents.txt
     File pkg\GeoLite2-Country.mmdb
 
     CreateDirectory "$SMPROGRAMS\MuWire"

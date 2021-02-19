@@ -36,8 +36,6 @@ cp AppRun build/MuWire.AppDir
 cp muwire-appimage-aarch64.sh build/MuWire.AppDir/usr/bin/muwire-appimage.sh
 cp $MUWIRE_DIR/MuWire-48x48.png build/MuWire.AppDir
 cp -R $RES_DIR/certificates build/MuWire.AppDir
-cp $RES_DIR/countries.txt build/MuWire.AppDir
-cp $RES_DIR/continents.txt build/MuWire.AppDir
 cp $RES_DIR/GeoLite2-Country.mmdb.gz build/MuWire.AppDir
 gunzip build/MuWire.AppDir/GeoLite2-Country.mmdb.gz
 cp ../muwire/logging/1_logging.properties build/MuWire.AppDir

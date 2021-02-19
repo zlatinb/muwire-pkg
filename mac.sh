@@ -31,8 +31,6 @@ cp build/pkg/jbigi.jar build/MuWire.app/Contents/Resources
 cp MuWire.jar build/MuWire.app/Contents/Resources
 cp unnamed.jar build/MuWire.app/Contents/Resources
 cp -R $RES_DIR/certificates build/MuWire.app/Contents/Resources
-cp $RES_DIR/countries.txt build/MuWire.app/Contents/Resources
-cp $RES_DIR/continents.txt build/MuWire.app/Contents/Resources
 cp $RES_DIR/GeoLite2-Country.mmdb.gz build/MuWire.app/Contents/Resources
 gunzip build/MuWire.app/Contents/Resources/GeoLite2-Country.mmdb.gz
 cp -R $MW_DIR/0_logging.properties build/MuWire.app/Contents/Resources
