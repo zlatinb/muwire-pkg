@@ -1,6 +1,11 @@
 #!/bin/bash
 set -e
 
+if [ -z ${MW_BUILD_NUMBER} ]; then
+    echo "set MW_BUILD_NUMBER to an integer >= 1"
+    exit 1
+fi
+
 VERSION=$(cat VERSION)
 RES_DIR=../i2p.i2p/installer/resources
 JVM_DIR=dist/mac
@@ -19,7 +24,9 @@ zip -d build/pkg/jbigi.jar "*linux*"
 zip -d build/pkg/jbigi.jar "*freebsd*"
 
 echo "preparing Info.plist"
-cat Info.plist.template | sed "s/__VERSION__/${VERSION}/g" > Info.plist
+cp Info.plist.template Info.plist
+sed -i.bak "s/MW_VERSION/${VERSION}/g" Info.plist
+sed -i.bak "s/MW_BUILD_NUMBER/${MW_BUILD_NUMBER}/g" Info.plist
 
 echo "copying jre"
 cp Info.plist build/MuWire.app/Contents

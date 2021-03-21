@@ -13,7 +13,7 @@
 	<key>CFBundleIconFile</key>
 	<string>MuWire</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.01</string>
+	<string>MW_VERSION</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundlePackageType</key>
@@ -23,6 +23,6 @@
 	<key>IFMinorVersion</key>
 	<integer>1</integer>
 	<key>CFBundleVersion</key>
-	<string>__VERSION__</string>
+	<string>MW_BUILD_NUMBER</string>
 </dict>
 </plist>
