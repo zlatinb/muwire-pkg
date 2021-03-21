@@ -4,7 +4,7 @@ The GitHub repo is a read-only mirror of the in-I2P repo at http://git.idk.i2p/z
 
 This is a project for packaging MuWire for various platforms.
 
-You need to have MuWire (https://github.com/zlatinb/muwire) and I2P (github or monotone) checked out as siblings to this project.
+You need to have [MuWire] and [I2P] checked out as siblings to this project.
 
 ### Building a JRE for MuWire
 
@@ -12,15 +12,15 @@ You need to have MuWire (https://github.com/zlatinb/muwire) and I2P (github or m
 1. Build MuWire as described in the MuWire README
 2. Set JAVA_HOME to your installation of JDK11+
 3. Set one or more of the following:
-    JAVA_HOME_WIN - to where the windows jdk installation is
-    JAVA_HOME_MAC - to where the osx jdk installation is
-    JAVA_HOME_LINUX - to where the linux jdk installation is
-4. run "jlink.sh"
-5. If all goes well, the mini-jvms for each platform will be in the "dist" folder.
+   * JAVA_HOME_WIN - to where the windows jdk installation is
+   * JAVA_HOME_MAC - to where the osx jdk installation is
+   * JAVA_HOME_LINUX - to where the linux jdk installation is
+4. run `jlink.sh`
+5. If all goes well, the mini-jvms for each platform will be in the `dist` folder.
 
 Note that compression is disabled because it is assumed that the final redistributable will be compressed using lzma or such.
 
-The file "jlink.modules" contains modules which are forcibly included by jlink.
+The file `jlink.modules` contains modules which are forcibly included by jlink.
 
 ### Building the Windows installer
 
@@ -28,7 +28,7 @@ The file "jlink.modules" contains modules which are forcibly included by jlink.
 
 You need to have dos2unix and nsis installed.  Those are usually available on Debian systems
 
-Run "nsis.sh"
+Run `nsis.sh`
 
 ##### Option B: on Windows
 
@@ -42,15 +42,22 @@ Set JAVA_HOME to point to your JDK 14 installation and run `sh jpackage.sh`.  Th
 
 ### Building the Mac bundle
 
-Run "mac.sh"
+Set the `MW_BUILD_NUMBER` environment variable to some integer >= 1 and run `mac.sh`.  Example:
+```
+MW_BUILD_NUMBER=1 sh mac.sh
+```
 
 ### Building Linux AppImage
 
 Set the "APPIMAGE_BINARY" to the absolute path of the App Image tool 
 (You can download it from https://github.com/AppImage/AppImageKit/releases )
 
-Run "linux.sh"
+Run `linux.sh`
 
 ### Building on armhf/aarch64 (Raspberry Pi)
 
 Same steps as Linux, excpet run `linux-armhf.sh` or `linux-aarch64.sh`
+
+
+[MuWire]: https://github.com/zlatinb/muwire
+[I2P]: https://github.com/i2p/i2p.i2p
