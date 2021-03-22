@@ -9,6 +9,7 @@
 
 1. Set the `MW_SIGNER` environment variable to a string identifying the signer
 1. Set the `MW_BUILD_NUMBER` environment variable to an integer >= 1
+1. Run `build.sh`
 
 ### Notarization
 
