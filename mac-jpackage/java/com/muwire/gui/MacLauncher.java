@@ -4,60 +4,51 @@ package com.muwire.gui;
 import java.io.*;
 import java.nio.file.*;
 
+
+/**
+ * Launches MuWire from a Mac App bundle.  Uses Java 9 apis.
+ * Sts the following properties:
+ * i2p.dir.base - this points to the (read-only) resources inside the bundle
+ * mac.bundle.location - this points to the folder containing the bundle itself
+ * muwire.pid - the pid of the Java process
+ * embeededRouter - to "true"
+ * updateType - to "mac"
+ */
 public class MacLauncher {
+
+    private static final String APP_PATH = "jpackage.app-path";
+
     public static void main(String[]args) throws Exception {
 
-        // 1. Select home directory
-        File home = new File(System.getProperty("user.home"));
-        File library = new File(home, "Library");
-        File appSupport = new File(library, "Application Support");
-        home = new File(appSupport, "MuWire");
-        if (!home.exists())
-            home.mkdirs();
-        else if (!home.isDirectory()) {
-            System.err.println(home + " exists but is not a directory.  Please get it out of the way");
-            System.exit(1);
-        }
+        // 1. Determine paths
+        String path = System.getProperty(APP_PATH,"unknown");
+        File f = new File(path);
+        File contents = f.getParentFile().getParentFile();
+        File resources = new File(contents, "Resources");
+        File bundleLocation = contents.getParentFile().getParentFile();
 
-        // 2. Deploy resources
-        var resourcesList = MacLauncher.class.getClassLoader().getResourceAsStream("resources.csv");
-        var reader = new BufferedReader(new InputStreamReader(resourcesList));
-
-        String line;
-        while((line = reader.readLine()) != null) {
-            deployResource(home, line);
-        }
-
-        // 3. Set some system props
+        // 2. Set system props
         System.setProperty("embeddedRouter","true");
         System.setProperty("updateType","mac");
+        System.setProperty("i2p.dir.base", resources.getAbsolutePath());
+        System.setProperty("mac.bundle.location", bundleLocation.getAbsolutePath());
+        System.setProperty("muwire.pid", String.valueOf(ProcessHandle.current().pid()));
+
+        // 3. Disable app nap
+        try {
+            System.load(resources.getAbsolutePath() + "/libMacLauncher.jnilib");
+            disableAppNap();
+        } catch (Throwable bad) {
+            // this is pretty bad - MuWire is very slow if AppNap kicks in.
+            // TODO: hook up to a console warning or similar.
+            bad.printStackTrace();
+        }
 
         // 4. Launch MuWire
         Launcher.main(args);
     }
 
-    private static void deployResource(File home, String description) throws Exception {
-        String []split = description.split(",");
-        String url = split[0];
-        String target = split[1];
-        boolean overwrite = Boolean.parseBoolean(split[2]);
-
-        var resource = MacLauncher.class.getClassLoader().getResourceAsStream(url);
-
-        File targetFile = home;
-        for (String element : target.split("/")) {
-            targetFile = new File(targetFile, element);
-        }
-
-        File targetDir = targetFile.getParentFile();
-        if (!targetDir.exists())
-            targetDir.mkdirs();
-        else if (!targetDir.isDirectory())
-            throw new Exception(targetDir + " exists but not a directory.  Please get it out of the way");
-
-        if (!targetFile.exists() || overwrite)
-            Files.copy(resource, targetFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
-    }
+    private static native void disableAppNap();
 }
 
 

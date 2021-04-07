@@ -40,6 +40,8 @@ cd java
 javac -d ../build -classpath ../build/MuWire.jar:../build/unnamed.jar com/muwire/gui/MacLauncher.java
 cd ..
 
+echo "compiling native lib"
+cc -v -Wl,-lobjc -mmacosx-version-min=10.9 -I"$JAVA_HOME/include" -I"$JAVA_HOME/include/darwin" -Ic -o build/libMacLauncher.jnilib -shared c/com_muwire_gui_MacLauncher.c
 
 echo "signing jbigi libs"
 mkdir jbigi
@@ -53,26 +55,10 @@ done
 cp jbigi.jar ../build
 cd ..
 
-
-echo "preparing resources.csv"
-cd $I2P_RES
-find certificates -name *.crt -exec echo '{},{},true' >> $HERE/build/resources.csv \;
-cd $HERE
-echo "geoip/GeoLite2-Country.mmdb,geoip/GeoLite2-Country.mmdb,true" >> build/resources.csv
-# TODO: decide on blocklist.txt
-
-echo "copying certificates"
-cp -R $I2P_RES/certificates build/
-
-echo "copying geoip"
-mkdir build/geoip
-cp $I2P_RES/GeoLite2-Country.mmdb.gz build/geoip
-gunzip build/geoip/GeoLite2-Country.mmdb.gz
-
 echo "building launcher.jar"
 cd build
-jar -cf launcher.jar com certificates geoip resources.csv
-rm -rf com certificates geoip resources.csv
+jar -cf launcher.jar com 
+rm -rf com 
 cd ..
 
 MW_VERSION=$(cat ../VERSION)
@@ -106,8 +92,18 @@ jpackage --runtime-image ../dist/mac \
     --main-jar launcher.jar \
     --main-class com.muwire.gui.MacLauncher
 
+echo "Copying certificates"
+cp -R $I2P_RES/certificates MuWire.app/Contents/Resources
+
+echo "Copying geoip"
+cp -R $I2P_PKG/geoip MuWire.app/Contents/Resources
+
+echo "Copying native lib"
+cp $HERE/build/libMacLauncher.jnilib MuWire.app/Contents/Resources
+
 echo "signing runtime libraries"
 find MuWire.app -name *.dylib -exec codesign --force -s $MW_SIGNER -v '{}' \;
+find MuWire.app -name *.jnilib -exec codesign --force -s $MW_SIGNER -v '{}' \;
 
 echo "signing the bundle"
 codesign --force -d --deep -f \
