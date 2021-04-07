@@ -6,4 +6,5 @@ rm -rfv \
     jbigi \
     res \
     MuWire.app \
+    build.log \
     *.dmg

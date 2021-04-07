@@ -1,0 +1,37 @@
+tell application "Finder"
+  set theDisk to a reference to (disks whose URL = "file://__HERE__/tmp/images/MuWire/")
+  delay 1
+  open theDisk
+  set theWindow to a reference to (container window of disks whose URL = "file://__HERE__/tmp/images/MuWire/")
+
+  set current view of theWindow to icon view
+  set toolbar visible of theWindow to 0
+  set statusbar visible of theWindow to 0
+
+  -- size of window should fit the size of background
+  set the bounds of theWindow to {400, 100, 1020, 440}
+
+  set theViewOptions to a reference to the icon view options of theWindow
+  set arrangement of theViewOptions to not arranged
+  set icon size of theViewOptions to 128
+  set background picture of theViewOptions to POSIX file "__HERE__/tmp/images/MuWire/.background/background.tiff"
+
+  -- Create alias for install location
+  make new alias file at POSIX file "__HERE__/tmp/images/MuWire" to POSIX file "/Applications" with properties {name:"/Applications"}
+
+  set allTheFiles to the name of every item of theWindow
+  repeat with theFile in allTheFiles
+    set theFilePath to POSIX path of theFile
+    if theFilePath is "/Applications" then
+      -- Position install location
+      set position of item theFile of theWindow to {440, 130}
+    else
+      -- Position application or runtime
+      set position of item theFile of theWindow to {150, 130}
+    end if
+  end repeat
+
+  update theDisk without registering applications
+  delay 5
+  close (get window of theDisk)
+end tell

@@ -82,10 +82,17 @@ echo "Preparing Info.plist"
 cp resources/Info.plist.template res/Info.plist
 sed -i.bak "s/MW_VERSION/$MW_VERSION/g" res/Info.plist
 sed -i.bak "s/MW_BUILD_NUMBER/$MW_BUILD_NUMBER/g" res/Info.plist
+rm res/Info.plist.bak
+
+echo "Preparing dmg script"
+cp resources/MuWire-dmg-setup.scpt.template res/MuWire-dmg-setup.scpt
+sed -i.bak "s@__HERE__@${HERE}@g" res/MuWire-dmg-setup.scpt
+rm res/*.bak
 
 echo "Copying icons"
 cp resources/MuWire.icns res
 cp resources/MuWire.icns res/MuWire-volume.icns
+cp resources/MuWire-background.tiff res
 
 echo "Preparing to invoke JPackage for MuWire version $MW_VERSION build $MW_BUILD_NUMBER"
 jpackage --runtime-image ../dist/mac \
@@ -93,6 +100,7 @@ jpackage --runtime-image ../dist/mac \
     --name MuWire \
     --java-options "-Xmx512m" \
     --java-options "--illegal-access=permit" \
+    --mac-package-identifier MuWire \
     --resource-dir res  \
     --input build \
     --main-jar launcher.jar \
@@ -112,6 +120,7 @@ codesign --force -d --deep -f \
 echo "invoking jpackage again to build a dmg"
 jpackage --name MuWire --app-image MuWire.app --app-version $MW_VERSION \
         --verbose \
+        --temp tmp \
         --license-file ../GPLv3.txt \
         --resource-dir res
 
