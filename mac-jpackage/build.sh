@@ -84,8 +84,8 @@ sed -i.bak "s/MW_VERSION/$MW_VERSION/g" res/Info.plist
 sed -i.bak "s/MW_BUILD_NUMBER/$MW_BUILD_NUMBER/g" res/Info.plist
 
 echo "Copying icons"
-cp ../MuWire.icns res
-cp ../MuWire.icns res/MuWire-volume.icns
+cp resources/MuWire.icns res
+cp resources/MuWire.icns res/MuWire-volume.icns
 
 echo "Preparing to invoke JPackage for MuWire version $MW_VERSION build $MW_BUILD_NUMBER"
 jpackage --runtime-image ../dist/mac \

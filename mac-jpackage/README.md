@@ -4,6 +4,7 @@
 
 * Java 16 or newer.  
 * A code signing certificate issued by Apple.
+* XCode 10 or newer
 
 ### Building
 

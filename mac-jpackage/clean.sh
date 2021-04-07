@@ -2,6 +2,7 @@
 
 rm -rfv \
     build \
+    tmp \
     jbigi \
     res \
     MuWire.app \

@@ -42,15 +42,6 @@ Set JAVA_HOME to point to your JDK 14 installation and run `sh jpackage.sh`.  Th
 
 ### Building the Mac bundle
 
-##### Option A: on Debian-based systems
-
-Set the `MW_BUILD_NUMBER` environment variable to some integer >= 1 and run `mac.sh`.  Example:
-```
-MW_BUILD_NUMBER=1 sh mac.sh
-```
-
-##### Option B (preferred): On Mac
-
 See `README.md` in the `mac-jpackage` folder.
 
 ### Building Linux AppImage
