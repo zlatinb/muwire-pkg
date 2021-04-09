@@ -66,6 +66,13 @@ cp -R ${I2P_RES}/certificates MuWire/lib
 echo "copying geoip"
 cp -R ${I2P_PKG}/geoip MuWire/lib
 
+echo "copying licenses"
+cp -R ${I2P_PKG}/licenses MuWire/lib
+cp ${I2P_PKG}/LICENSE.txt MuWire/lib/I2P-LICENSE.txt
+
+echo "copying blocklist"
+cp ${I2P_PKG}/blocklist.txt MuWire/lib
+
 echo "touching hosts.txt"
 touch MuWire/lib/hosts.txt
 

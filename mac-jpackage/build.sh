@@ -101,6 +101,13 @@ cp -R $I2P_PKG/geoip MuWire.app/Contents/Resources
 echo "Copying native lib"
 cp $HERE/build/libMacLauncher.jnilib MuWire.app/Contents/Resources
 
+echo "copying licenses"
+cp -R ${I2P_PKG}/licenses MuWire.app/Contents/Resources
+cp ${I2P_PKG}/LICENSE.txt MuWire.app/Contents/Resources/I2P-LICENSE.txt
+
+echo "copying blocklist"
+cp ${I2P_PKG}/blocklist.txt MuWire.app/Contents/Resources
+
 echo "touching hosts.txt"
 touch MuWire.app/Contents/Resources/hosts.txt
 
