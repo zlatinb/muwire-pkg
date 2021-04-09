@@ -24,21 +24,7 @@ The file `jlink.modules` contains modules which are forcibly included by jlink.
 
 ### Building the Windows installer
 
-##### Option A: On Debian-based systems:
-
-You need to have dos2unix and nsis installed.  Those are usually available on Debian systems
-
-Run `nsis.sh`
-
-##### Option B: on Windows
-
-You need to have the following software:
-
-* JDK 14+
-* NSIS
-* a bash-like environment, like Git-Bash or Cygwin
-
-Set JAVA_HOME to point to your JDK 14 installation and run `sh jpackage.sh`.  Then go inside the `build` directory, and from there right-click on the `installer-jpackage.nsi` file and select "Compile with NSIS".
+See `README.md` in the `win-jpackage` folder.
 
 ### Building the Mac bundle
 

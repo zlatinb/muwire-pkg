@@ -19,7 +19,6 @@ cp $PKG_TEMP/gui-shadow-*.tar .
 VERSION=$(ls *.tar | sed "s/gui-shadow-\(.*\).tar/\1/")
 echo "will build version $VERSION"
 
-echo "!define MUWIRE_VERSION $VERSION" > version.nsi
 echo $VERSION > VERSION
 
 tar -xvf gui-*.tar > /dev/null
