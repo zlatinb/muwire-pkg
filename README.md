@@ -32,15 +32,7 @@ See `README.md` in the `mac-jpackage` folder.
 
 ### Building Linux AppImage
 
-Set the "APPIMAGE_BINARY" to the absolute path of the App Image tool 
-(You can download it from https://github.com/AppImage/AppImageKit/releases )
-
-Run `linux.sh`
-
-### Building on armhf/aarch64 (Raspberry Pi)
-
-Same steps as Linux, excpet run `linux-armhf.sh` or `linux-aarch64.sh`
-
+See `README.md` in the `linux-jpackage` folder.
 
 [MuWire]: https://github.com/zlatinb/muwire
 [I2P]: https://github.com/i2p/i2p.i2p
