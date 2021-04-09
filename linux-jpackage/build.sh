@@ -24,7 +24,7 @@ MUWIRE_DIR=$HERE/../../muwire/gui/griffon-app/resources
 JVM_DIR=$HERE/../dist/linux
 ARCH=$(uname -m)
 MW_UPDATE_TYPE="appimage"
-if [ "aarch64" == $ARCH ]; then
+if [ "aarch64" = $ARCH ]; then
     MW_UPDATE_TYPE="appimage-aarch64"
 fi
 
