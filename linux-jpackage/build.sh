@@ -66,6 +66,9 @@ cp -R ${I2P_RES}/certificates MuWire/lib
 echo "copying geoip"
 cp -R ${I2P_PKG}/geoip MuWire/lib
 
+echo "touching hosts.txt"
+touch MuWire/lib/hosts.txt
+
 echo "preparing AppDir"
 mkdir -p build/MuWire.AppDir
 mv MuWire build/MuWire.AppDir

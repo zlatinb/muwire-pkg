@@ -101,6 +101,9 @@ cp -R $I2P_PKG/geoip MuWire.app/Contents/Resources
 echo "Copying native lib"
 cp $HERE/build/libMacLauncher.jnilib MuWire.app/Contents/Resources
 
+echo "touching hosts.txt"
+touch MuWire.app/Contents/Resources/hosts.txt
+
 echo "signing runtime libraries"
 find MuWire.app -name *.dylib -exec codesign --force -s $MW_SIGNER -v '{}' \;
 find MuWire.app -name *.jnilib -exec codesign --force -s $MW_SIGNER -v '{}' \;

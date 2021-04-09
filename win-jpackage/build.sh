@@ -52,6 +52,9 @@ cp -R ${I2P_RES}/certificates MuWire
 
 echo "copying geoip"
 cp -R ${I2P_PKG}/geoip MuWire
+
+echo "touching hosts.txt"
+touch MuWire/hosts.txt
 		
 rm -rf build && mkdir build
 echo "!define MUWIRE_VERSION $MW_VERSION" > build/version.nsi
