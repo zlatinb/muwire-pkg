@@ -1,36 +1,49 @@
 UniCode true
 
 SetCompressor lzma
-
 !include "version.nsi"
-
-!define MUI_ICON MuWire\MuWire.ico
-!define MUI_FINISHPAGE
-!include "MUI2.nsh"
-
 Name "MuWire ${MUWIRE_VERSION}"
 OutFile MuWire-${MUWIRE_VERSION}.exe
-Icon MuWire\MuWire.ico
+
 RequestExecutionLevel admin
 InstallDir "$PROGRAMFILES\MuWire"
 
-LangString MUI_TEXT_WELCOME_INFO_TITLE ${LANG_ENGLISH} "Welcome to MuWire"
-LangString MUI_TEXT_WELCOME_INFO_TEXT ${LANG_ENGLISH} "Press Next to install MuWire on your computer"
+!include MUI2.nsh
 
-!insertmacro MUI_PAGE_WELCOME
+; MUI Settings
+!define MUI_VERBOSE 3
 
-PageEx license
-    licensetext "GPLv3"
-    licensedata "GPLv3.txt"
-PageExEnd
-Page directory
-Page instfiles
+!define MUI_ICON "MuWire\MuWire.ico"
+!define MUI_UNICON "MuWire\MuWire.ico"
+
+!define MUI_HEADERIMAGE
+!define MUI_HEADERIMAGE_BITMAP "muwire.bmp"
+!define MUI_HEADERIMAGE_BITMAP_STRETCH "FitControl"
+
+!define MUI_HEADERIMAGE_UNBITMAP "muwire.bmp"
+!define MUI_HEADERIMAGE_UNBITMAP_STRETCH "FitControl"
+
+!define MUI_WELCOMEFINISHPAGE_BITMAP "mu.bmp"
+!define MUI_WELCOMEFINISHPAGE_BITMAP_STRETCH  "FitControl"
+
+!define MUI_UNWELCOMEFINISHPAGE_BITMAP "mu.bmp"
+!define MUI_UNWELCOMEFINISHPAGE_BITMAP_STRETCH "FitControl"
 
 !define MUI_FINISHPAGE_RUN
 !define MUI_FINISHPAGE_RUN_TEXT "Start MuWire now"
 !define MUI_FINISHPAGE_RUN_FUNCTION "LaunchLink"
+
+!define MUI_WELCOMEPAGE_TEXT "Press Next to install MuWire on your computer."
+
+!insertmacro MUI_PAGE_WELCOME
+!insertmacro MUI_PAGE_LICENSE GPLv3.txt
+
+!insertmacro MUI_PAGE_DIRECTORY
+!insertmacro MUI_PAGE_INSTFILES
+
 !insertmacro MUI_PAGE_FINISH
 
+!insertmacro MUI_LANGUAGE "English"
 
 Function LaunchLink
     ExecShell "" "$DESKTOP\MuWire.lnk"

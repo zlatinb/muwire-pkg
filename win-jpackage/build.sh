@@ -66,6 +66,9 @@ touch MuWire/hosts.txt
 rm -rf build && mkdir build
 echo "!define MUWIRE_VERSION $MW_VERSION" > build/version.nsi
 
+echo "copying installer images"
+cp resources/*.bmp build
+
 mv MuWire build
 
 cp nsis/installer.nsi build/
