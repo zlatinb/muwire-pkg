@@ -10,17 +10,17 @@ echo "cleaning"
 ./clean.sh
 
 HERE=$PWD
-I2P_JARS=$HERE/../../i2p.i2p/pkg-temp/lib
-I2P_PKG=$HERE/../../i2p.i2p/pkg-temp
-I2P_RES=$HERE/../../i2p.i2p/installer/resources
-JVM_DIR=$HERE/../dist/win
+I2P_JARS="${HERE}"/../../i2p.i2p/pkg-temp/lib
+I2P_PKG="${HERE}"/../../i2p.i2p/pkg-temp
+I2P_RES="${HERE}"/../../i2p.i2p/installer/resources
+JVM_DIR="${HERE}"/../dist/win
 
 mkdir build
 
 MW_VERSION=$(cat ../VERSION)
 
 echo "compiling custom launcher"
-cp $HERE/../*.jar build
+cp "${HERE}"/../*.jar build
 cd java
 javac -d ../build -classpath ../build/MuWire.jar com/muwire/gui/WinLauncher.java
 cd ..
@@ -43,22 +43,22 @@ echo "preparing to invoke jpackage"
 		--java-options "--illegal-access=permit" \
         --input build \
         --main-jar MuWire.jar \
-        --runtime-image ${JVM_DIR} \
+        --runtime-image "${JVM_DIR}" \
         --main-class com.muwire.gui.WinLauncher \
         --type app-image
 
 echo "copying certificates"
-cp -R ${I2P_RES}/certificates MuWire
+cp -R "${I2P_RES}"/certificates MuWire
 
 echo "copying geoip"
-cp -R ${I2P_PKG}/geoip MuWire
+cp -R "${I2P_PKG}"/geoip MuWire
 
 echo "copying licenses"
-cp -R ${I2P_PKG}/licenses MuWire
-cp ${I2P_PKG}/LICENSE.txt MuWire/I2P-LICENSE.txt
+cp -R "${I2P_PKG}"/licenses MuWire
+cp "${I2P_PKG}"/LICENSE.txt MuWire/I2P-LICENSE.txt
 
 echo "copying blocklist"
-cp ${I2P_PKG}/blocklist.txt MuWire
+cp "${I2P_PKG}"/blocklist.txt MuWire
 
 echo "touching hosts.txt"
 touch MuWire/hosts.txt
