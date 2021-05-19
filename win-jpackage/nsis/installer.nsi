@@ -11,7 +11,6 @@ InstallDir "$PROGRAMFILES\MuWire"
 !include MUI2.nsh
 
 ; MUI Settings
-!define MUI_VERBOSE 3
 
 !define MUI_ICON "MuWire\MuWire.ico"
 !define MUI_UNICON "MuWire\MuWire.ico"
