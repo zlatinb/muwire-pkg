@@ -84,7 +84,7 @@ echo "Preparing to invoke JPackage for MuWire version $MW_VERSION build $MW_BUIL
 jpackage --runtime-image ../dist/mac \
     --type app-image \
     --name MuWire \
-    --java-options "-Xmx512m" \
+    --java-options "-Xms512m" \
     --java-options "--illegal-access=permit" \
     --mac-package-identifier MuWire \
     --resource-dir res  \

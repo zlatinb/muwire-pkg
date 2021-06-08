@@ -39,7 +39,7 @@ echo "preparing to invoke jpackage"
        --icon resources/MuWire.ico \
         --app-version $MW_VERSION \
         --description "MuWire: Easy Anonymous File-Sharing" \
-        --java-options "-Xmx512M" \
+        --java-options "-Xms512M" \
 		--java-options "--illegal-access=permit" \
         --input build \
         --main-jar MuWire.jar \

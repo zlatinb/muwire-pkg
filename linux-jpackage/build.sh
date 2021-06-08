@@ -51,7 +51,7 @@ echo "preparing to invoke jpackage for version $MW_VERSION update type $MW_UPDAT
 "${JAVA_HOME}"/bin/jpackage --name MuWire \
         --app-version $MW_VERSION \
         --description "MuWire: Easy Anonymous File-Sharing" \
-        --java-options "-Xmx512M" \
+        --java-options "-Xms512M" \
         --java-options "--illegal-access=permit" \
         --java-options "-DupdateType=$MW_UPDATE_TYPE" \
         --input build \
