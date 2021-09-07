@@ -85,7 +85,15 @@ jpackage --runtime-image ../dist/mac \
     --type app-image \
     --name MuWire \
     --java-options "-Xms512m" \
-    --java-options "--illegal-access=permit" \
+    --java-options "--add-opens java.base/java.lang=ALL-UNNAMED" \
+    --java-options "--add-opens java.base/sun.nio.fs=ALL-UNNAMED" \
+    --java-options "--add-opens java.base/java.nio=ALL-UNNAMED" \
+    --java-options "--add-opens java.desktop/java.awt=ALL-UNNAMED" \
+    --java-options "--add-opens java.desktop/javax.swing=ALL-UNNAMED" \
+    --java-options "--add-opens java.desktop/javax.swing.plaf.basic=ALL-UNNAMED" \
+    --java-options "--add-opens java.desktop/sun.swing=ALL-UNNAMED" \
+    --java-options "--add-opens java.desktop/javax.swing.text.html=ALL-UNNAMED" \
+    --java-options "--add-exports java.desktop/com.apple.laf=ALL-UNNAMED" \
     --mac-package-identifier MuWire \
     --resource-dir res  \
     --input build \
