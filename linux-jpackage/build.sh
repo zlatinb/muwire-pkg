@@ -52,8 +52,16 @@ echo "preparing to invoke jpackage for version $MW_VERSION update type $MW_UPDAT
         --app-version $MW_VERSION \
         --description "MuWire: Easy Anonymous File-Sharing" \
         --java-options "-Xms512M" \
-        --java-options "--illegal-access=permit" \
         --java-options "-DupdateType=$MW_UPDATE_TYPE" \
+        --java-options "--add-opens java.base/java.lang=ALL-UNNAMED" \
+        --java-options "--add-opens java.base/sun.nio.fs=ALL-UNNAMED" \
+        --java-options "--add-opens java.base/java.nio=ALL-UNNAMED" \
+        --java-options "--add-opens java.desktop/java.awt=ALL-UNNAMED" \
+        --java-options "--add-opens java.desktop/javax.swing=ALL-UNNAMED" \
+        --java-options "--add-opens java.desktop/javax.swing.plaf.basic=ALL-UNNAMED" \
+        --java-options "--add-opens java.desktop/sun.swing=ALL-UNNAMED" \
+        --java-options "--add-opens java.desktop/javax.swing.text.html=ALL-UNNAMED" \
+        --java-options "--add-opens java.desktop/com.sun.java.swing.plaf.gtk=ALL-UNNAMED" \
         --input build \
         --main-jar MuWire.jar \
         --runtime-image ${JVM_DIR} \
