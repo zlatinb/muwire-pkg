@@ -40,7 +40,7 @@ cd ..
 
 echo "building launcher.jar"
 cd build
-jar -cf launcher.jar com
+$JAVA_HOME/bin/jar -cf launcher.jar com
 rm -rf com
 cd ..
 
