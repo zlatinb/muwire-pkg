@@ -5,6 +5,7 @@ import com.muwire.core.RestartEvent;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
@@ -17,11 +18,11 @@ public class LinuxUpdater implements AutoUpdater {
     public void init(Core core) {
         core.getEventBus().register(UpdateDownloadedEvent.class, this);
         core.getEventBus().register(RestartEvent.class, this);
-        home = core.getHome();
+        home = core.home;
     }
 
     public void onUpdateDownloadedEvent(UpdateDownloadedEvent e) {
-        updateFile = e.updateFile;
+        updateFile = e.getUpdateFile();
     }
 
     public void onRestartEvent(RestartEvent e) {
