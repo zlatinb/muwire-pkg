@@ -44,7 +44,7 @@ public class LinuxUpdater implements AutoUpdater {
 
                 pb.directory(workingDir).
                     redirectErrorStream(true).
-                    redirectOutput(new File(workingDir, "update.log").
+                    redirectOutput(new File(workingDir, "update.log")).
                     start();
             } catch (IOException bad) {
                 bad.printStackTrace();
