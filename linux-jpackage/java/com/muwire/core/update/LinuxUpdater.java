@@ -54,5 +54,6 @@ public class LinuxUpdater implements AutoUpdater {
                 bad.printStackTrace();
             }
         };
+        Runtime.getRuntime().addShutdownHook(new Thread(hook));
     }
 }
