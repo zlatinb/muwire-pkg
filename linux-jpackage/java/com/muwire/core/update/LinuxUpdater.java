@@ -3,6 +3,9 @@ package com.muwire.core.update;
 import com.muwire.core.Core;
 import com.muwire.core.RestartEvent;
 
+import java.io.File;
+import java.io.IOException;
+
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 
