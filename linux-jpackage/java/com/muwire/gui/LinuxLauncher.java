@@ -25,6 +25,7 @@ public class LinuxLauncher {
         System.setProperty("embeddedRouter","true");
         System.setProperty("i2p.dir.base", lib.getAbsolutePath());
         System.setProperty("muwire.pid", String.valueOf(ProcessHandle.current().pid()));
+        System.setProperty("auto.updater.class", "com.muwire.core.update.LinuxUpdater");
 
         // 3. Launch MuWire
         Launcher.main(args);

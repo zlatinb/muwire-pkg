@@ -35,14 +35,19 @@ MW_VERSION=$(cat ../VERSION)
 echo "compiling custom launcher"
 cp $HERE/../*.jar build
 cd java
-$JAVA_HOME/bin/javac -d ../build -classpath ../build/MuWire.jar com/muwire/gui/LinuxLauncher.java
+$JAVA_HOME/bin/javac -d ../build -classpath ../build/MuWire.jar com/muwire/gui/LinuxLauncher.java com/muwire/core/update/LinuxUpdater.java
 cd ..
+
+echo "copying linux-update.sh"
+cp sh/linux-update.sh build
 
 echo "building launcher.jar"
 cd build
-$JAVA_HOME/bin/jar -cf launcher.jar com
-rm -rf com
+$JAVA_HOME/bin/jar -cf launcher.jar com linux-update.sh
+rm -rf com linux-update.sh
 cd ..
+
+
 
 echo "copying jbigi"
 cp "${I2P_JARS}"/jbigi.jar build
