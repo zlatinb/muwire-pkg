@@ -50,16 +50,17 @@ Function LaunchLink
     ExecShell "" "$DESKTOP\MuWire.lnk"
 FunctionEnd
 
-Funciont .onInit
+Function .onInit
     IfSilent 0 end
     
     ${Do}
         ${FindProcess} "MuWire.exe" $0
-        sleep 500
+        Sleep 500
     ${LoopWhile} $0 <> 0
 
     end:
-FuncionEnd
+FunctionEnd
+
 Section install
 	CreateDirectory $INSTDIR
 	SetOutPath $INSTDIR
@@ -74,11 +75,11 @@ Section install
     CreateShortCut "$SMPROGRAMS\MuWire\MuWire.lnk" "$INSTDIR\MuWire.exe" "" "$INSTDIR\MuWire.ico"
     CreateShortCut "$DESKTOP\MuWire.lnk" "$INSTDIR\MuWire.exe" "" "$INSTDIR\MuWire.ico"
 
-    WriteUninstaller "$INSTDIR\uninstall-muwire.exe
+    WriteUninstaller "$INSTDIR\uninstall-muwire.exe"
 
 	IfSilent 0 end
 	ExecShell "" "$DESKTOP\MuWire.lnk"
-	end:"
+	end:
 SectionEnd
 
 Section "uninstall"

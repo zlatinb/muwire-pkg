@@ -119,3 +119,4 @@ Function GetProcessName
   Pop $0
   Exch $2                     ; save process name
 FunctionEnd
+!endif

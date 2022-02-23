@@ -80,6 +80,7 @@ cp resources/*.bmp build
 mv MuWire build
 
 cp nsis/installer.nsi build/
+cp nsis/FindProcess.nsh build/
 
 cp resources/GPLv3.txt build/
 unix2dos build/GPLv3.txt
