@@ -3,8 +3,9 @@ package com.muwire.core.update;
 import com.muwire.core.Core;
 import com.muwire.core.RestartEvent;
 
+import com.muwire.gui.Elevator;
+
 import java.io.File;
-import java.io.IOException;
 
 public class WinUpdater implements AutoUpdater {
 
@@ -22,8 +23,8 @@ public class WinUpdater implements AutoUpdater {
     public void onRestartEvent(RestartEvent e) {
         Runnable hook = () -> {
             try {
-                var pb = new ProcessBuilder(updateFile.getAbsolutePath(),"/S").start();
-            } catch (IOException bad) {
+                Elevator.executeAsAdministrator(updateFile.getAbsolutePath(),"/S");
+            } catch (Exception bad) {
                 bad.printStackTrace();
             }
         };
