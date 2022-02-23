@@ -24,6 +24,7 @@ public class WinLauncher {
 		System.setProperty("updateType","exe");
 		System.setProperty("i2p.dir.base", f.getParentFile().getAbsolutePath());
 		System.setProperty("muwire.pid", String.valueOf(ProcessHandle.current().pid()));
+        System.setProperty("auto.updater.class","com.muwire.core.update.WinUpdater");
 		
 		// 3. Launch MuWire
 		Launcher.main(args);
