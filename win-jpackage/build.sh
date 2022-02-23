@@ -22,7 +22,7 @@ MW_VERSION=$(cat ../VERSION)
 echo "compiling custom launcher"
 cp "${HERE}"/../*.jar build
 cd java
-javac -d ../build -classpath ../build/MuWire.jar com/muwire/gui/WinLauncher.java
+javac -d ../build -classpath ../build/MuWire.jar com/muwire/gui/WinLauncher.java com/muwire/core/update/WinUpdater.java
 cd ..
 
 echo "building launcher.jar"
