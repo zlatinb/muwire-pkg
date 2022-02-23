@@ -33,6 +33,7 @@ public class MacLauncher {
         System.setProperty("i2p.dir.base", resources.getAbsolutePath());
         System.setProperty("mac.bundle.location", bundleLocation.getAbsolutePath());
         System.setProperty("muwire.pid", String.valueOf(ProcessHandle.current().pid()));
+        System.setProperty("auto.updater.class","com.muwire.core.update.MacUpdater");
 
         // 3. Disable app nap
         try {

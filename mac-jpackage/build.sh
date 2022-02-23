@@ -37,7 +37,7 @@ mkdir build
 echo "compiling custom launcher"
 cp $HERE/../*.jar build
 cd java
-javac -d ../build -classpath ../build/MuWire.jar:../build/unnamed.jar com/muwire/gui/MacLauncher.java
+javac -d ../build -classpath ../build/MuWire.jar:../build/unnamed.jar com/muwire/gui/MacLauncher.java com/muwire/core/update/MacUpdater.java
 cd ..
 
 echo "compiling native lib"
@@ -56,8 +56,9 @@ cp jbigi.jar ../build
 cd ..
 
 echo "building launcher.jar"
+cp sh/mac-update.sh build
 cd build
-jar -cf launcher.jar com 
+jar -cf launcher.jar com mac-update.sh
 rm -rf com 
 cd ..
 
