@@ -52,6 +52,8 @@ FunctionEnd
 
 Function .onInit
     IfSilent 0 end
+
+    Banner::show "Upgrading MuWire..."
     
     ${Do}
         ${FindProcess} "MuWire.exe" $0
@@ -78,6 +80,7 @@ Section install
     WriteUninstaller "$INSTDIR\uninstall-muwire.exe"
 
 	IfSilent 0 end
+    Banner::destroy
 	ExecShell "" "$DESKTOP\MuWire.lnk"
 	end:
 SectionEnd
