@@ -8,6 +8,8 @@ OutFile MuWire-${MUWIRE_VERSION}.exe
 RequestExecutionLevel admin
 InstallDir "$PROGRAMFILES\MuWire"
 
+!include LogicLib.nsh
+!include FindProcess.nsh
 !include MUI2.nsh
 
 ; MUI Settings
@@ -48,6 +50,16 @@ Function LaunchLink
     ExecShell "" "$DESKTOP\MuWire.lnk"
 FunctionEnd
 
+Funciont .onInit
+    IfSilent 0 end
+    
+    ${Do}
+        ${FindProcess} "MuWire.exe" $0
+        sleep 500
+    ${LoopWhile} $0 <> 0
+
+    end:
+FuncionEnd
 Section install
 	CreateDirectory $INSTDIR
 	SetOutPath $INSTDIR
@@ -62,7 +74,11 @@ Section install
     CreateShortCut "$SMPROGRAMS\MuWire\MuWire.lnk" "$INSTDIR\MuWire.exe" "" "$INSTDIR\MuWire.ico"
     CreateShortCut "$DESKTOP\MuWire.lnk" "$INSTDIR\MuWire.exe" "" "$INSTDIR\MuWire.ico"
 
-    WriteUninstaller "$INSTDIR\uninstall-muwire.exe"
+    WriteUninstaller "$INSTDIR\uninstall-muwire.exe
+
+	IfSilent 0 end
+	ExecShell "" "$DESKTOP\MuWire.lnk"
+	end:"
 SectionEnd
 
 Section "uninstall"
