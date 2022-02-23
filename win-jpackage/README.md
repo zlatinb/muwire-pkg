@@ -2,9 +2,10 @@
 
 ### Requirements
 
-* JDK 14 or newer
-* NSIS
-* a bash=like environment like GitBash or Cygwin
+* [JDK 17](http://jdk.java.net/17)
+* [NSIS](https://nsis.sourceforge.io/Main_Page)
+* The [ShellExecAsUser](https://nsis.sourceforge.io/ShellExecAsUser_plug-in) NSIS plugin (x86 unicode version)
+* [GitBash](https://gitforwindows.org)
 
 ### 
 

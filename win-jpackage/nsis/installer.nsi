@@ -47,7 +47,7 @@ InstallDir "$PROGRAMFILES\MuWire"
 !insertmacro MUI_LANGUAGE "English"
 
 Function LaunchLink
-    ExecShell "" "$DESKTOP\MuWire.lnk"
+    ShellExecAsUser::ShellExecAsUser "" "$DESKTOP\MuWire.lnk"
 FunctionEnd
 
 Function .onInit
@@ -81,7 +81,7 @@ Section install
 
 	IfSilent 0 end
     Banner::destroy
-	ExecShell "" "$DESKTOP\MuWire.lnk"
+	ShellExecAsUser::ShellExecAsUser "" "$DESKTOP\MuWire.lnk"
 	end:
 SectionEnd
 
