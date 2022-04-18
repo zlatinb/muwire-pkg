@@ -89,8 +89,10 @@ jpackage --runtime-image ../dist/mac \
     --java-options "--add-opens java.base/java.lang=ALL-UNNAMED" \
     --java-options "--add-opens java.base/sun.nio.fs=ALL-UNNAMED" \
     --java-options "--add-opens java.base/java.nio=ALL-UNNAMED" \
+    --java-options "--add-opens java.base/java.util=ALL-UNNAMED" \
     --java-options "--add-opens java.desktop/java.awt=ALL-UNNAMED" \
     --java-options "--add-opens java.desktop/javax.swing=ALL-UNNAMED" \
+    --java-options "--add-opens java.desktop/javax.swing.tree=ALL-UNNAMED" \
     --java-options "--add-opens java.desktop/javax.swing.plaf.basic=ALL-UNNAMED" \
     --java-options "--add-opens java.desktop/sun.swing=ALL-UNNAMED" \
     --java-options "--add-opens java.desktop/javax.swing.text.html=ALL-UNNAMED" \
