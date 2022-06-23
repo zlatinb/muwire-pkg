@@ -29,7 +29,6 @@ public class MacLauncher {
 
         // 2. Set system props
         System.setProperty("embeddedRouter","true");
-        System.setProperty("updateType","mac");
         System.setProperty("i2p.dir.base", resources.getAbsolutePath());
         System.setProperty("mac.bundle.location", bundleLocation.getAbsolutePath());
         System.setProperty("muwire.pid", String.valueOf(ProcessHandle.current().pid()));

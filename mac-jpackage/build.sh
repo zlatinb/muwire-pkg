@@ -27,6 +27,7 @@ fi
 echo "cleaning"
 ./clean.sh
 
+ARCH=$(uname -m)
 HERE=$PWD
 I2P_JARS=$HERE/../../i2p.i2p/pkg-temp/lib
 I2P_PKG=$HERE/../../i2p.i2p/pkg-temp
@@ -43,17 +44,21 @@ cd ..
 echo "compiling native lib"
 cc -v -Wl,-lobjc -mmacosx-version-min=10.9 -I"$JAVA_HOME/include" -I"$JAVA_HOME/include/darwin" -Ic -o build/libMacLauncher.jnilib -shared c/com_muwire_gui_MacLauncher.c
 
-echo "signing jbigi libs"
-mkdir jbigi
-cp $I2P_JARS/jbigi.jar jbigi
-cd jbigi
-unzip jbigi.jar
-for lib in *.jnilib; do
-    codesign --force -s $MW_SIGNER -v $lib
-    jar uf jbigi.jar $lib
-done
-cp jbigi.jar ../build
-cd ..
+if [ $ARCH == "arm64" ]; then
+    echo "skipping jbigi"
+else
+    echo "signing jbigi libs"
+    mkdir jbigi
+    cp $I2P_JARS/jbigi.jar jbigi
+    cd jbigi
+    unzip jbigi.jar
+    for lib in *.jnilib; do
+        codesign --force -s $MW_SIGNER -v $lib
+        jar uf jbigi.jar $lib
+    done
+    cp jbigi.jar ../build
+    cd ..
+fi
 
 echo "building launcher.jar"
 cp sh/mac-update.sh build
@@ -81,11 +86,19 @@ cp resources/MuWire.icns res
 cp resources/MuWire.icns res/MuWire-volume.icns
 cp resources/MuWire-background.tiff res
 
+if [ $ARCH == "arm64" ]; then
+    MW_UPDATE_TYPE=mac-arm64
+else
+    MW_UPDATE_TYPE=mac
+fi
+echo "Update type $MW_UPDATE_TYPE"
+
 echo "Preparing to invoke JPackage for MuWire version $MW_VERSION build $MW_BUILD_NUMBER"
 jpackage --runtime-image ../dist/mac \
     --type app-image \
     --name MuWire \
     --java-options "-Xms512m" \
+    --java-options "-DupdateType=$MW_UPDATE_TYPE" \
     --java-options "--add-opens java.base/java.lang=ALL-UNNAMED" \
     --java-options "--add-opens java.base/sun.nio.fs=ALL-UNNAMED" \
     --java-options "--add-opens java.base/java.nio=ALL-UNNAMED" \
