@@ -44,21 +44,17 @@ cd ..
 echo "compiling native lib"
 cc -v -Wl,-lobjc -mmacosx-version-min=10.9 -I"$JAVA_HOME/include" -I"$JAVA_HOME/include/darwin" -Ic -o build/libMacLauncher.jnilib -shared c/com_muwire_gui_MacLauncher.c
 
-if [ $ARCH == "arm64" ]; then
-    echo "skipping jbigi"
-else
-    echo "signing jbigi libs"
-    mkdir jbigi
-    cp $I2P_JARS/jbigi.jar jbigi
-    cd jbigi
-    unzip jbigi.jar
-    for lib in *.jnilib; do
-        codesign --force -s $MW_SIGNER -v $lib
-        jar uf jbigi.jar $lib
-    done
-    cp jbigi.jar ../build
-    cd ..
-fi
+echo "signing jbigi libs"
+mkdir jbigi
+cp $I2P_JARS/jbigi.jar jbigi
+cd jbigi
+unzip jbigi.jar
+for lib in *.jnilib; do
+    codesign --force -s $MW_SIGNER -v $lib
+    jar uf jbigi.jar $lib
+done
+cp jbigi.jar ../build
+cd ..
 
 echo "building launcher.jar"
 cp sh/mac-update.sh build
