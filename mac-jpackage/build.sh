@@ -94,6 +94,7 @@ jpackage --runtime-image ../dist/mac \
     --type app-image \
     --name MuWire \
     --java-options "-Xms512m" \
+    --java-options "-XX:+UseParallelGC" \
     --java-options "-DupdateType=$MW_UPDATE_TYPE" \
     --java-options "--add-opens java.base/java.lang=ALL-UNNAMED" \
     --java-options "--add-opens java.base/sun.nio.fs=ALL-UNNAMED" \

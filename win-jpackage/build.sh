@@ -40,6 +40,7 @@ echo "preparing to invoke jpackage"
         --app-version $MW_VERSION \
         --description "MuWire: Easy Anonymous File-Sharing" \
         --java-options "-Xms512M" \
+        --java-options "-XX:+UseParallelGC" \
         --java-options "--add-opens java.base/java.lang=ALL-UNNAMED" \
         --java-options "--add-opens java.base/sun.nio.fs=ALL-UNNAMED" \
         --java-options "--add-opens java.base/java.nio=ALL-UNNAMED" \
