@@ -57,6 +57,7 @@ echo "preparing to invoke jpackage for version $MW_VERSION update type $MW_UPDAT
         --app-version $MW_VERSION \
         --description "MuWire: Easy Anonymous File-Sharing" \
         --java-options "-Xms512M" \
+        --java-options "-Xms4G" \
         --java-options "-XX:+UseParallelGC" \
         --java-options "-DupdateType=$MW_UPDATE_TYPE" \
         --java-options "--add-opens java.base/java.lang=ALL-UNNAMED" \
