@@ -28,6 +28,7 @@ mkdir tmp
 mv gui-shadow-$VERSION/lib/gui-$VERSION-all.jar tmp/gui.jar
 cd tmp
 unzip gui.jar > /dev/null 
+rm module-info.class
 "${JAVA_HOME}"/bin/jar -cf0 unnamed.jar *.class
 mv unnamed.jar ../
 rm *.class
