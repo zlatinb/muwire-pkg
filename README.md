@@ -8,7 +8,7 @@ You need to have [MuWire] and [I2P] checked out as siblings to this project.
 
 ### Building a JRE for MuWire
 
-0. Build I2P with `ant clean pkg`
+0. Build I2P with `ant distclean tarball`
 1. Build MuWire as described in the MuWire README
 2. Set JAVA_HOME to your installation of JDK11+
 3. Set one or more of the following:
